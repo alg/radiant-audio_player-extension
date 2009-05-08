@@ -1,0 +1,5 @@
+<% include_stylesheet 'admin/audio_player/audio' %>
+<h1>New audio track</h1>
+<% form_for :audio, @audio, :url => { :action => 'create' }, :html => { :method => 'post', :multipart => true } do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

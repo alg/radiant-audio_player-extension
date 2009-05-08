@@ -21,7 +21,7 @@
         
         <td class="audio">
           <%= image('audio_player/audio') %>
-          <%= link_to audio_track.title, audio_edit_url(:id => audio_track.id) %>
+          <%= link_to audio_track.title, edit_admin_audio_file_path(audio_track) %>
         </td>
         
         <td>
@@ -35,7 +35,7 @@
         </td>
         
         <td class="remove">
-          <%= link_to image('remove', :alt => 'Remove audio'), audio_remove_url(:id => audio_track.id) %>
+          <%= link_to image('remove', :alt => 'Remove audio'), remove_admin_audio_file_path(audio_track) %>
         </td>
         
       </tr>
@@ -45,11 +45,11 @@
 </table>
 
 <p>
-  <%= link_to image("audio_player/new-audio", :alt => "New audio"), {:action => :new} %>
-  <%= link_to image("audio_player/reorder", :alt => "Reorder"), {:action => :reorder} %>
+  <%= link_to image("audio_player/new-audio", :alt => "New audio"), { :action => :new } %>
+  <%= link_to image("audio_player/reorder", :alt => "Reorder"), { :action => :reorder } %>
 </p>
 <p>
   Configure audio player for 
-    <%= link_to "admin", audio_player_config_edit_path(1) %> or
-    <%= link_to "site", audio_player_config_edit_path(2) %>
+    <%= link_to "admin", edit_admin_audio_player_config_path(1) %> or
+    <%= link_to "site",  edit_admin_audio_player_config_path(2) %>
 </p>

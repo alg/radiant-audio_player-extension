@@ -1,4 +1,4 @@
-class Admin::AudioController < Admin::AbstractModelController
+class Admin::AudioController < Admin::ResourceController
   model_class Audio
 
   def index
@@ -17,7 +17,7 @@ class Admin::AudioController < Admin::AbstractModelController
         audio.position = i + 1
         audio.save
       end
-      redirect_to audio_index_url
+      redirect_to admin_audio_url
     end
   end
 

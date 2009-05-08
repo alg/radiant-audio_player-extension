@@ -1,0 +1,39 @@
+<%= error_messages_for 'audio' %>
+
+<div class="form-area">
+  <div  id="audio_form_area">
+    <p>
+      <label for="audio_track">Audio file</label>
+      <%= f.file_field :track %>
+      <% if content_type_error = @audio.errors.on(:track_content_type) %>
+        <small class="error">• <%= content_type_error %></small>
+      <%- end -%>
+    </p>
+
+    <p class="title">
+      <label for="audio_title">Title</label>
+      <%= f.text_field "title", :class => 'textbox', :maxlength => 255 %>
+    </p>
+
+    <p class="description">
+      <label for="audio_description">Description</label>
+      <%= f.text_area "description", :class => 'textbox', :maxlength => 255 %>
+    </p>
+    
+    <p>
+      <label for="audio_filter">Filter:</label>
+      <select name="audio[filter]" id="audio_filter">
+        <%= options_for_select([['none', '']] + TextFilter.descendants.map { |f| f.filter_name }.sort, @audio.filter) %>
+      </select>
+    </p>
+    
+     <span class="clear">&nbsp;</span>
+  </div>
+</div>
+
+<p class="buttons">
+  <%= save_model_button(@audio) %>
+  <%= save_model_and_continue_editing_button(@audio) %>
+  or 
+  <%= link_to "Cancel", { :action => :index } %>
+</p>

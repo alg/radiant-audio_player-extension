@@ -24,14 +24,14 @@
 //]]>
 </script>
 
-<% form_tag audio_update_order_path do %>
+<% form_tag update_order_admin_audio_path do %>
 
   <div><%= hidden_field_tag "sort_order" %></div>
   
   <p class="buttons">
     <%= submit_tag "Finished", :class => 'button' %> 
     or 
-    <%= link_to 'Cancel', audio_index_path %>
+    <%= link_to 'Cancel', admin_audio_path %>
   </p>
 
 <% end %>
